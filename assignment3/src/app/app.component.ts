@@ -1,0 +1,33 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  // styleUrls: ['./app.component.css']
+  styles: [`
+    .white {
+      color: white;
+    }
+  `]
+})
+export class AppComponent {
+  
+  array = [];
+
+  show = false;
+
+  toggle() {
+    
+    this.show = !this.show;
+
+    this.array.push(this.array.length + 1);
+
+  }
+
+  getBackgroundColor( item ) {
+
+    return item > 4 ? 'dodgerblue' : '';
+
+  }
+  
+}

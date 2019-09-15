@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <button (click)="toggle()">Display Details</button>
+            <p *ngIf="show">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <ul>
+                <li *ngFor="let item of array" [ngStyle]="{backgroundColor: getBackgroundColor( item )}" [ngClass]="{white: item > 4}">{{ item }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
