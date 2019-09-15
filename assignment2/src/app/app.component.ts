@@ -11,7 +11,7 @@ export class AppComponent {
 
   reset() {
 
-    this.username = "";
+    this.username = '';
 
   }
 
