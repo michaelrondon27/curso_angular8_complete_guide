@@ -11,23 +11,19 @@ import { Component } from '@angular/core';
   `]
 })
 export class AppComponent {
-  
+
   array = [];
 
   show = false;
 
   toggle() {
-    
+
     this.show = !this.show;
 
-    this.array.push(this.array.length + 1);
+    // this.array.push(this.array.length + 1);
+
+    this.array.push(new Date());
 
   }
 
-  getBackgroundColor( item ) {
-
-    return item > 4 ? 'dodgerblue' : '';
-
-  }
-  
 }
