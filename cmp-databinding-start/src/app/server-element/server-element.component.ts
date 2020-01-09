@@ -1,4 +1,3 @@
-import { ElementRef } from '@angular/core';
 import {
   Component,
   OnInit,
@@ -12,7 +11,9 @@ import {
   AfterViewInit,
   AfterViewChecked,
   OnDestroy,
-  ViewChild
+  ViewChild,
+  ElementRef,
+  ContentChild
 } from '@angular/core';
 
 @Component({
@@ -39,6 +40,8 @@ export class ServerElementComponent implements
 
   @ViewChild('heading', { static: true }) header: ElementRef;
 
+  @ContentChild('contentParagraph', { static: true }) paragraph: ElementRef;
+
   @Input() name: string;
 
   constructor() {
@@ -53,6 +56,7 @@ export class ServerElementComponent implements
   ngOnInit() {
     console.log('ngOnInit called!');
     console.log('Text Content: ' + this.header.nativeElement.textContent);
+    console.log('Text Content of paragrap: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -61,6 +65,7 @@ export class ServerElementComponent implements
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called!');
+    console.log('Text Content of paragrap: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngAfterContentChecked() {
