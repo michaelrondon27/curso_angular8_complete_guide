@@ -15,4 +15,6 @@ export class AppComponent {
 
   onlyOdd = false;
 
+  value = 5;
+
 }
