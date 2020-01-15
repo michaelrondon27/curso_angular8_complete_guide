@@ -25,5 +25,7 @@ export class AccountComponent {
 
     // this.loggingService.logStatusChange( status );
 
+    this.accountsService.stautsUpdated.emit( status );
+
   }
 }
