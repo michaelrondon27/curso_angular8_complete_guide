@@ -7,8 +7,7 @@ import { AccountsService } from '../accounts.service';
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
   providers: [
-    LoggingService,
-    AccountsService
+    LoggingService
   ]
 })
 export class NewAccountComponent {
