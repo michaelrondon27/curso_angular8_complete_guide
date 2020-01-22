@@ -8,6 +8,7 @@ import { ServersComponent } from "./servers/servers.component";
 import { ServerComponent } from "./servers/server/server.component";
 import { EditServerComponent } from "./servers/edit-server/edit-server.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { AuthGuard } from "./auth.guard";
 
 const appRoutes: Routes = [
     {
@@ -26,6 +27,9 @@ const appRoutes: Routes = [
     },
     {
       path: 'servers',
+      canActivate: [
+        AuthGuard
+      ],
       component: ServersComponent,
       children: [
         {
