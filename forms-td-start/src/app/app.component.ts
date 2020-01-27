@@ -12,6 +12,8 @@ export class AppComponent {
 
   defaultQuestion = 'pet';
 
+  genders = ['male', 'female'];
+
   @ViewChild('f', {static: true}) signupForm: NgForm;
 
   suggestUserName() {
