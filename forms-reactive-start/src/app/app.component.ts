@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
         'username': new FormControl(null, Validators.required),
         'email': new FormControl(null, [Validators.required, Validators.email]),
       }),
-      'gender': new FormControl('male')
+      'gender': new FormControl('male'),
+      'hobbies': new FormArray([])
     });
 
   }
@@ -33,8 +34,16 @@ export class AppComponent implements OnInit {
 
   }
 
-  getControls() {
-    return (<FormArray>this.signupForm.get('hobbies')).controls;
+  get controls() {
+    return (this.signupForm.get('hobbies') as FormArray).controls;
+  }
+
+  onAddHobby() {
+
+    const control = new FormControl(null, Validators.required);
+
+    (<FormArray>this.signupForm.get('hobbies')).push(control);
+
   }
 
 }
