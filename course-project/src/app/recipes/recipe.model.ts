@@ -2,7 +2,7 @@ import { Ingredient } from '../shared/ingredient.model';
 
 export class Recipe {
     public name: string;
-    public descriprion: string;
+    public description: string;
     public imagePath: string;
     public ingredients: Ingredient[];
 
@@ -10,7 +10,7 @@ export class Recipe {
 
         this.name = name;
 
-        this.descriprion = desc;
+        this.description = desc;
 
         this.imagePath = imagePath;
 
