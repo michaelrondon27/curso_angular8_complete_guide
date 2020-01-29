@@ -12,11 +12,11 @@ import { ShoppingListService } from '../shopping-list.service';
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
 
+  editMode = false;
+
   editedItem: Ingredient;
 
   editedItemIndex: number;
-
-  editMode = false;
 
   @ViewChild('f', {static: true}) shoppingListform: NgForm;
 
@@ -45,7 +45,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   }
 
-  onAddItem( form: NgForm ) {
+  onSubmit( form: NgForm ) {
 
     const value = form.value;
 
@@ -61,6 +61,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
     }
 
+    this.editMode = false;
+
+    form.reset();
 
   }
 
