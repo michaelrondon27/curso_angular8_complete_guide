@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  filteredStatus = '';
+
   servers = [
     {
       instanceType: 'medium',
