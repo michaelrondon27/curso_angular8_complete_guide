@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
+import { Post } from './post.model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,9 +23,9 @@ export class AppComponent implements OnInit {
 
   }
 
-  onCreatePost(postData: { title: string; content: string }) {
+  onCreatePost(postData: Post) {
 
-    this.http.post(
+    this.http.post<{ name: string }>(
       'https://ng-complete-guide-2178f.firebaseio.com/posts.json',
       postData
     ).subscribe( responseData => {
@@ -44,10 +46,10 @@ export class AppComponent implements OnInit {
 
   private fetchPosts() {
 
-    this.http.get('https://ng-complete-guide-2178f.firebaseio.com/posts.json')
-    .pipe(map(responseData => {
+    this.http.get<{ [key: string]: Post}>('https://ng-complete-guide-2178f.firebaseio.com/posts.json')
+    .pipe(map( responseData => {
 
-      const postsArray = [];
+      const postsArray: Post[] = [];
 
       for ( const key in responseData ) {
 
