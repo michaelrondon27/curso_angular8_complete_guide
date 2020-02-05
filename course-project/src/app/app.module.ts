@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { AuthComponent } from './auth/auth.component';
 import { DropDownDirective } from './shared/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
@@ -20,6 +21,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 @NgModule({
   declarations: [
     AppComponent,
+    AuthComponent,
     DropDownDirective,
     HeaderComponent,
     RecipesComponent,
