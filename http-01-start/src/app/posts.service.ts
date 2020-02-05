@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
@@ -40,29 +40,32 @@ export class PostsService {
 
     fetchPosts() {
 
-        return this.http.get<{ [key: string]: Post}>('https://ng-complete-guide-2178f.firebaseio.com/posts.json')
-            .pipe(map( responseData => {
+        return this.http.get<{ [key: string]: Post}>(
+            'https://ng-complete-guide-2178f.firebaseio.com/posts.json',
+            {
+                headers: new HttpHeaders({'Custom-Header': 'Hello'})
+            }
+        ).pipe(map( responseData => {
 
-                const postsArray: Post[] = [];
+            const postsArray: Post[] = [];
 
-                for ( const key in responseData ) {
+            for ( const key in responseData ) {
 
-                    if ( responseData.hasOwnProperty(key) ) {
+                if ( responseData.hasOwnProperty(key) ) {
 
-                        postsArray.push({ ...responseData[key], id: key });
-
-                    }
+                    postsArray.push({ ...responseData[key], id: key });
 
                 }
 
-                return postsArray;
+            }
 
-            }), catchError( errorResp => {
+            return postsArray;
 
-                return throwError(errorResp);
+        }), catchError( errorResp => {
 
-            })
-        );
+            return throwError(errorResp);
+
+        }));
 
     }
 
