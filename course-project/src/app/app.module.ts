@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { DropDownDirective } from './shared/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
@@ -24,6 +25,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     AuthComponent,
     DropDownDirective,
     HeaderComponent,
+    LoadingSpinnerComponent,
     RecipesComponent,
     RecipeListComponent,
     RecipeDetailComponent,
