@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { Subject, throwError } from 'rxjs';
 
 import { Post } from './post.model';
 
@@ -41,23 +41,28 @@ export class PostsService {
     fetchPosts() {
 
         return this.http.get<{ [key: string]: Post}>('https://ng-complete-guide-2178f.firebaseio.com/posts.json')
-        .pipe(map( responseData => {
+            .pipe(map( responseData => {
 
-          const postsArray: Post[] = [];
+                const postsArray: Post[] = [];
 
-          for ( const key in responseData ) {
+                for ( const key in responseData ) {
 
-            if ( responseData.hasOwnProperty(key) ) {
+                    if ( responseData.hasOwnProperty(key) ) {
 
-              postsArray.push({ ...responseData[key], id: key });
+                        postsArray.push({ ...responseData[key], id: key });
 
-            }
+                    }
 
-          }
+                }
 
-          return postsArray;
+                return postsArray;
 
-        }));
+            }), catchError( errorResp => {
+
+                return throwError(errorResp);
+
+            })
+        );
 
     }
 
