@@ -20,7 +20,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    this.postsService.fetchPosts();
+    this.isFetching = true;
+
+    this.postsService.fetchPosts().subscribe( posts => {
+
+      this.isFetching = false;
+
+      this.loadedPosts = posts;
+
+    });
 
   }
 
@@ -32,7 +40,15 @@ export class AppComponent implements OnInit {
 
   onFetchPosts() {
 
-    this.postsService.fetchPosts();
+    this.isFetching = true;
+
+    this.postsService.fetchPosts().subscribe( posts => {
+
+      this.isFetching = false;
+
+      this.loadedPosts = posts;
+
+    });
 
   }
 
