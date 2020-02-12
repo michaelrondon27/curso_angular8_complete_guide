@@ -8,6 +8,10 @@ const appRoutes: Routes = [
         path: '',
         redirectTo: '/recipes',
         pathMatch: 'full'
+    },
+    {
+        path: 'recipes',
+        loadChildren: './recipes/recipes.module#RecipesModule'
     }
 ];
 
