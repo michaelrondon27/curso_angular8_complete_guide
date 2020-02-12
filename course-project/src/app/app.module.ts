@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { AlertComponent } from './shared/alert/alert.component';
 import { AuthComponent } from './auth/auth.component';
 import { DropDownDirective } from './shared/dropdown.directive';
 import { HeaderComponent } from './header/header.component';
@@ -23,6 +24,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
+    AlertComponent,
     AuthComponent,
     DropDownDirective,
     HeaderComponent,
