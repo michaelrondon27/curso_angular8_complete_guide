@@ -10,13 +10,11 @@ import { HeaderComponent } from './header/header.component';
 // Routes
 import { AppRoutingModule } from './app-routing.module';
 
-// Interceptors
-import { AuthInterceptor } from './auth/auth.interceptor';
-
 // Modules
+import { CoreModule } from './core.module';
 import { RecipesModule } from './recipes/recipes.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 @NgModule({
   declarations: [
@@ -27,19 +25,13 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     AppRoutingModule,
     BrowserModule,
+    CoreModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     RecipesModule,
     SharedModule,
     ShoppingListModule
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
   ],
   bootstrap: [AppComponent]
 })
