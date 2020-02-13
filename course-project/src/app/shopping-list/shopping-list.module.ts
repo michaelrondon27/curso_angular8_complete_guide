@@ -8,7 +8,6 @@ import { ShoppingListComponent } from './shopping-list.component';
 
 // Modules
 import { SharedModule } from '../shared/shared.module';
-import { LoggingService } from '../logging.service';
 
 @NgModule({
     declarations: [
@@ -28,9 +27,6 @@ import { LoggingService } from '../logging.service';
             }
         ]),
         SharedModule
-    ],
-    // providers: [
-    //     LoggingService
-    // ]
+    ]
 })
 export class ShoppingListModule {}
