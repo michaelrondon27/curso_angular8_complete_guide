@@ -8,6 +8,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 // Directives
 import { DropDownDirective } from './dropdown.directive';
 import { PlaceholderDirective } from './placeholder/placeholder.directive';
+import { LoggingService } from '../logging.service';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,9 @@ import { PlaceholderDirective } from './placeholder/placeholder.directive';
     ],
     entryComponents: [
         AlertComponent
+    ],
+    providers: [
+        LoggingService
     ]
 })
 export class SharedModule {}

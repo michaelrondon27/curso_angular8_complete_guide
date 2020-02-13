@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Modules
 import { CoreModule } from './core.module';
 import { SharedModule } from './shared/shared.module';
+import { LoggingService } from './logging.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,9 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     SharedModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // providers: [
+  //   LoggingService
+  // ]
 })
 export class AppModule { }
