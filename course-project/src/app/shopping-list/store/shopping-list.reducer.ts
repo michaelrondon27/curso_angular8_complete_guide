@@ -18,7 +18,7 @@ export function shoppingListReducer(
         case ShoppingListActions.ADD_INGREDIENT:
             return {
                 ...state,
-                ingredientes: [
+                ingredients: [
                     ...state.ingredients,
                     action.payload
                 ]
