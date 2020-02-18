@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap } from 'rxjs/operators';
-import { throwError, BehaviorSubject } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { User } from './user.model';
-import { Router } from '@angular/router';
 import * as fromApp from './../store/app.reducer';
 import * as AuthActions from './store/auth.actions';
 
@@ -27,60 +25,8 @@ export class AuthService {
     private tokenExpirationTimer: any;
 
     constructor(
-        private http: HttpClient,
-        private router: Router,
         private store: Store<fromApp.AppState>
     ) {}
-
-    signup( email: string, password: string ) {
-
-        return this.http.post<AuthResponseData>(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBbpOYkrjMoyTlHeJ25Y_Is5cWAfYUTx2U',
-            {
-                email,
-                password,
-                returnSecureToken: true
-            }
-        ).pipe(
-            catchError(this.handleError),
-            tap( resData => {
-
-                this.handleAuthentication(
-                    resData.email,
-                    resData.localId,
-                    resData.idToken,
-                    +resData.expiresIn
-                );
-
-            })
-        );
-
-    }
-
-    login( email: string, password: string ) {
-
-        return this.http.post<AuthResponseData>(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBbpOYkrjMoyTlHeJ25Y_Is5cWAfYUTx2U',
-            {
-                email,
-                password,
-                returnSecureToken: true
-            }
-        ).pipe(
-            catchError(this.handleError),
-            tap( resData => {
-
-                this.handleAuthentication(
-                    resData.email,
-                    resData.localId,
-                    resData.idToken,
-                    +resData.expiresIn
-                );
-
-            })
-        );
-
-    }
 
     autoLogin() {
 
@@ -124,8 +70,6 @@ export class AuthService {
     logout() {
 
         this.store.dispatch(new AuthActions.Logout());
-
-        this.router.navigate(['/auth']);
 
         localStorage.removeItem('userData');
 
