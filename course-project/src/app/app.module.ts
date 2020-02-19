@@ -20,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
 import * as fromApp from './store/app.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
 import { environment } from '../environments/environment';
+import { RecipeEffects } from './recipes/store/recipe.effects';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,10 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     BrowserModule,
     CoreModule,
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([
+      AuthEffects,
+      RecipeEffects
+    ]),
     HttpClientModule,
     SharedModule,
     StoreRouterConnectingModule.forRoot(),
