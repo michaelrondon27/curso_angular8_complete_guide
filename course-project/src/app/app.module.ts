@@ -29,7 +29,7 @@ import { RecipeEffects } from './recipes/store/recipe.effects';
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     CoreModule,
     EffectsModule.forRoot([
       AuthEffects,
