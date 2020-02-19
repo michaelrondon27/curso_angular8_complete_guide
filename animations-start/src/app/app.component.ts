@@ -7,7 +7,7 @@ import { trigger, state, style } from '@angular/animations';
   animations: [
     trigger('divState', [
       state('normal', style({
-        'background-color': 'red',
+        backgroundColor: 'red',
         transform: 'translateX(0)'
       })),
       state('highlighted', style({
@@ -27,9 +27,21 @@ export class AppComponent {
 
   state = 'normal';
 
-  onAdd(item) {
+  onAdd( item ) {
 
-    this.list.push(item);
+    this.list.push( item );
+
+  }
+
+  onAnimate() {
+
+    this.state === 'normal' ? this.state = 'highlighted' : this.state = 'normal';
+
+  }
+
+  onDelete( item ) {
+
+    this.list.splice( this.list.indexOf(item), 1 );
 
   }
 
