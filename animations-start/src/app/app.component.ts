@@ -117,6 +117,18 @@ export class AppComponent {
 
   wildState = 'normal';
 
+  animationEnded( event ) {
+
+    console.log(event);
+
+  }
+
+  animationStarted( event ) {
+
+    console.log(event);
+
+  }
+
   onAdd( item ) {
 
     this.list.push( item );
