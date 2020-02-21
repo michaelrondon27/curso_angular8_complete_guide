@@ -13,7 +13,8 @@
                 "/*.js"
             ],
             "url": [
-                "https://fonts.googleapis.com/css?family=Oswald:300,700"
+                "https://fonts.googleapis.com/css?family=Oswald:300,700",
+                "https://fonts.googleapis.com/**"
             ]
         }
     }, {
@@ -25,6 +26,18 @@
                 "/assets/**",
                 "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
             ]
+        }
+    }],
+    "dataGroups": [{
+        "name": "posts",
+        "urls": [
+            "https://jsonplaceholder.typicode.com/posts"
+        ],
+        "cacheConfig": {
+            "maxSize": 5,
+            "maxAge": "6h",
+            "timeout": "10s",
+            "strategy": "freshness"
         }
     }]
 }
